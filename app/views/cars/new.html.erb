@@ -3,7 +3,7 @@
 <%= render "shared/banner" %>
 
 
-<div class="container">
+<div class="container" style="margin-bottom: 150px;">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <%= simple_form_for [@car] do |f| %>
@@ -15,7 +15,7 @@
         <%= f.input :color %>
         <%= f.input :description %>
         <%= f.input :price %>
-        <%= f.submit "add car", class: "btn btn-primary" %>
+        <%= f.submit "Add car", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
