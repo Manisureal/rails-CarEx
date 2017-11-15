@@ -1,0 +1,8 @@
+<h1> <%= @booking.user_id %></h1>
+
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.input :booked_time, label: 'Please choose your booking date...' %>
+  <%= f.input :status %>
+
+  <%= f.submit%>
+<% end %>
