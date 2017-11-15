@@ -1,12 +1,30 @@
 <%= render "shared/home_banner" %>
 
+
 <div class="container">
-
-  <div class="how-it-works">
-<h2>How it works</h2>
-
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="col-xs-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Models/2017/CLS/Features/2017-CLS-CLS63-AMG-COUPE-MODEL-008-MCFO.jpg');">
+          <div class="card-category"><%= car.make %></div>
+          <div class="card-description">
+            <h2><%= car.model %></h2>
+            <p><%= car.user.email %></p>
+            <p>Engine size (<%= car.engine_size %>) | Seats: <%= car.seats %> | <em><%= link_to "Show", car_path(car) %></em></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-<%= image_tag "list-car.png", {class: "home-img", id: "logo"}%>
 
 
+
+</div class="how-it-works">
+  <h2>How it works</h2>
+  <%= image_tag "list-car.png", {class: "home-img", id: "logo"} %>
+  <h3>Book a ride</h3>
+  <p>Create an account and book a ride in an amazing ride. All cars on our platform are privately owned and promise a great experience during the ride. Whether you are thinking about buying such a machine, or just want to have a great time, you are in the right place</p>
+  <h3>List your car</h3>
+  <p>Have a great car? Would you like to meet people interested in great cars as well? And make money while doing so? You are at the right place - list your car</p>
 </div>
