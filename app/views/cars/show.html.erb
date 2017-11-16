@@ -1,17 +1,28 @@
-<%= render "shared/banner_show" %>
+<!-- <%= #render "shared/banner_show" %> -->
 
-<div class="container show-page">
-
-  <div class="row">
+<!-- <div class="container show-page">
+ -->
+<!--   <div class="row">
     <div class="col-xs-12">
-      <!-- <h1>Your Car Listing...</h1> -->
-      <h3><%= @car.make %>, <%= @car.model %>, <%= @car.color %>- £<%= @car.price %> <%= link_to "Book Now!", new_car_booking_path(@car.id), class: "btn btn-primary" %></h3>
+      <h3><%= @car.make %>, <%= @car.model %>, <%= @car.color %>- £<%= @car.price %> <%= link_to #"Book Now!", new_car_booking_path(@car.id), class: "btn btn-primary" %></h3>
       <h4>Seats: <%= @car.seats %> </h4>
       <h4>Engine Size: <%= @car.engine_size %></h4>
       <h4>Transmission: <%= @car.transmission %></h4>
       <p> <%= @car.description %></p>
     </div>
   </div>
-</div>
+</div> -->
 
+
+<!-- <div class="main-container">
+  <div class="row">
+
+  </div>
+
+  <div id="booking_box">
+    <h3><em>Your booking</em></h3>
+    <h4><%= @car.make %> | <%= @car.model %></h4>
+
+  </div>
+</div> -->
 
