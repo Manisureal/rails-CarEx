@@ -1,6 +1,10 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
+  def my_cars
+    @cars = current_user.cars
+    authorize @cars
+  end
   def index
     @cars = policy_scope(Car).order(created_at: :asc)
   end
@@ -39,7 +43,7 @@ class CarsController < ApplicationController
 
   def destroy
     @car.destroy
-    redirect_to cars_path, notice: 'Your Car has been removed successfully..'
+    redirect_to my_cars_path, notice: 'Your Car has been removed successfully..'
   end
 
 private
