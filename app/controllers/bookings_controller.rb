@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     authorize @car
     authorize @booking
-
   end
 
   def create
