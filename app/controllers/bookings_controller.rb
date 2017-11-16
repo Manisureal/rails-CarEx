@@ -11,6 +11,8 @@ class BookingsController < ApplicationController
   def new
     @car = Car.find(params[:car_id])
     @booking = Booking.new
+    authorize @car
+    authorize @booking
   end
 
   def create
@@ -24,6 +26,7 @@ class BookingsController < ApplicationController
     else
       render 'new'
     end
+    authorize @booking
   end
 
   def edit

@@ -1,6 +1,14 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
+
   # after_action :verify_authorized, unless: :devise_controller?
+
+
+  def my_cars
+    @cars = current_user.cars
+    authorize @cars
+  end
+
   def index
     if params[:query]
       @cars = policy_scope(Car).where("make ILIKE ?", "%#{params[:query]}%")
@@ -25,7 +33,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
-      redirect_to cars_path, notice: 'Listing was successfully created'
+      redirect_to my_cars_path, notice: 'Listing was successfully created'
     else
       render 'new'
     end
@@ -37,8 +45,8 @@ class CarsController < ApplicationController
   end
 
   def update
-    if @car.update
-      redirect_to cars_path, notice: 'Listing was successfully updated'
+    if @car.update(car_params)
+      redirect_to my_cars_path, notice: 'Listing was successfully updated'
     else
       render 'new'
     end
@@ -46,7 +54,7 @@ class CarsController < ApplicationController
 
   def destroy
     @car.destroy
-    redirect_to cars_path, notice: 'Your Car has been removed successfully..'
+    redirect_to my_cars_path, notice: 'Your Car has been removed successfully..'
   end
 
 private
@@ -59,7 +67,7 @@ end
 #Strong Params
 
 def car_params
-  params.require(:car).permit(:make, :model, :seats, :engine_size, :transmission, :color, :reg_year, :fuel_type, :interior, :description, :price, :user)
+  params.require(:car).permit(:make, :model, :seats, :engine_size, :transmission, :color, :reg_year, :fuel_type, :interior, :description, :price, :user, :photo)
 end
 
 end

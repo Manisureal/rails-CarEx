@@ -20,10 +20,15 @@ class CarPolicy < ApplicationPolicy
   def destroy?
     user_is_owner?
   end
+  def my_cars?
+    return true
+  end
 
   private
 
   def user_is_owner?
     record.user == user
   end
+
+
 end
