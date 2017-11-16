@@ -1,12 +1,23 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
+  # after_action :verify_authorized, unless: :devise_controller?
+
+
   def my_cars
     @cars = current_user.cars
     authorize @cars
   end
+
   def index
-    @cars = policy_scope(Car).order(created_at: :asc)
+    if params[:query]
+      @cars = policy_scope(Car).where("make ILIKE ?", "%#{params[:query]}%")
+      authorize @cars
+    else
+      @cars = policy_scope(Car).order(created_at: :asc)
+      authorize @cars
+    end
+
   end
 
   def show

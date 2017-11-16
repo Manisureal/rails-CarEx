@@ -2,4 +2,6 @@
 
 <% @bookings.each do |booking| %>
   <%= booking.booked_time %>
+  <%= booking.car.model %>
+  <%= booking.car.user %>
 <% end %>
