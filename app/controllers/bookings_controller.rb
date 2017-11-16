@@ -9,16 +9,25 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @car = Car.find(params[:car_id])
     @booking = Booking.new
+    authorize @car
+    authorize @booking
+
   end
 
   def create
     @booking = Booking.new(booking_params)
+    car = Car.find(params[:car_id])
+    @booking.car = car
+    @booking.user = current_user
     if @booking.save
-      redirect_to 'bookings_path'
+      flash[:notice] = "Successfully created..."
+      redirect_to(car_path(car))
     else
       render 'new'
     end
+    authorize @booking
   end
 
   def edit
