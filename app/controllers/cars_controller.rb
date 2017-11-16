@@ -52,7 +52,7 @@ end
 #Strong Params
 
 def car_params
-  params.require(:car).permit(:make, :model, :seats, :engine_size, :transmission, :color, :reg_year, :fuel_type, :interior, :description, :price, :user)
+  params.require(:car).permit(:make, :model, :seats, :engine_size, :transmission, :color, :reg_year, :fuel_type, :interior, :description, :price, :user, :photo)
 end
 
 end
