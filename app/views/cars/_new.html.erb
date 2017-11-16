@@ -1,0 +1,20 @@
+<div class="container" style="margin-bottom: 150px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for [@car] do |f| %>
+        <%= f.input :city, placeholder: 'London' %>
+        <%= f.input :make, placeholder: 'Mercedes'  %>
+        <%= f.input :model, placeholder: 'AMG' %>
+        <%= f.input :seats, default: 3, collection: 2..5 %>
+        <%= f.input :engine_size, default: 3, placeholder: '3.0', collection: [4.0, 4.2, 4.8, 5.0, 5.6, 6.0, 6.8, 8.3, 8.4] %>
+        <%= f.input :transmission, placeholder: 'Manual', as: :radio_buttons, collection: ['Manual', 'Automatic'] %>
+        <%= f.input :color, placeholder: 'Silver' %>
+        <%= f.input :description, placeholder: 'The Mercedes-Benz CLS is a mid-size luxury 4-door sedan (fastback), originally launched in 2005. I bought this car in...' %>
+        <%= f.input :price, default: 2, collection: [50, 100, 150, 200, 250, 300, 350, 400] %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.submit "save", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

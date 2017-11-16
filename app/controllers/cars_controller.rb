@@ -34,8 +34,8 @@ class CarsController < ApplicationController
   end
 
   def update
-    if @car.update
-      redirect_to cars_path, notice: 'Listing was successfully updated'
+    if @car.update(car_params)
+      redirect_to my_cars_path, notice: 'Listing was successfully updated'
     else
       render 'new'
     end
