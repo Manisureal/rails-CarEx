@@ -2,6 +2,12 @@
   <div class="banner-content">
     <h1>Welcome to CarEx</h1>
     <p><strong>Book and list rides in the cars you love </strong></p>
-
+    <%= form_tag(cars_path, method: :get) do %>
+    <%= text_field_tag :query, params[:search], style: "
+    color:  black;", class: "form-control" %>
+    <%= submit_tag 'Search', :name => nil, class: "btn btn-primary", style: "margin-top: 10px;" %>
+    <% end %>
   </div>
 </div>
+
+
