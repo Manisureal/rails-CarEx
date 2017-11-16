@@ -1,0 +1,33 @@
+<% if @cars.count > 0 %>
+<h1>Your Cars</h1>
+<div class="container">
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="col-xs-6 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= car.photo %>');">
+          <div class="card-category"><%= car.make %></div>
+          <div class="card-description">
+            <h2><%= car.model %></h2>
+            <p><%= car.color %></p>
+          </div>
+          <img class="card-user" src="http://static.dnaindia.com/sites/default/files/styles/half/public/1841563.jpg?itok=95S9ZkkB">
+          <%= link_to "", car_path(car.id) %>
+        </div>
+        <%= link_to "edit", edit_car_path(car), class: "btn btn-primary" %>
+         <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+
+
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% else %>
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/2996/parking-parking-lot-underground-garage.jpg');">
+  <div class="banner-content">
+    <h1>Sorry you have no cars</h1>
+    <%= link_to "List a car", new_car_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>
