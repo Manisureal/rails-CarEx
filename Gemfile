@@ -9,6 +9,7 @@ gem 'rails', '5.1.4'
 gem 'redis'
 gem 'devise'
 gem 'pundit'
+gem 'jquery-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
