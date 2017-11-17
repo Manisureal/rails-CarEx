@@ -8,6 +8,8 @@
       <div class="car-show-card">
         <h1><%= @car.make %> <%= @car.model %></h1>
         <p class="car-show-address">Color of the car:   <%= @car.color %></p>
+          <%= cl_image_tag(@car.user.photo,
+      width: 400, height: 300, crop: :fill) %>
       </div>
       <div class="car-show-card">
         <h3>Description of this amazing super-duper car:</h3>
@@ -58,7 +60,7 @@
       </div>
     </div>
 
-    <div class="col-xs-4">
+    <div class="col-xs-4 ">
       <div class="car-show-card">
         <h2>Create your Booking</h2>
         <%= simple_form_for([@car, @booking]) do |f| %>
