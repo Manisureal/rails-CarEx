@@ -6,7 +6,7 @@
   <div class="row" id="cards-row-home">
     <% @cars.sample(6).each do |car| %>
       <div class="col-xs-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('car.photo');">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('<%= car.photo %>');">
           <div class="card-category"><%= car.make %></div>
           <div class="card-description">
             <h2>
