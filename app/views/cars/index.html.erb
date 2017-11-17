@@ -11,10 +11,11 @@
             <h2><%= car.model %></h2>
             <p><%= car.color %></p>
           </div>
-          <img class="card-user" src="http://static.dnaindia.com/sites/default/files/styles/half/public/1841563.jpg?itok=95S9ZkkB">
+          <%= image_tag car.user.photo, class: "card-user" %>
           <%= link_to "", car_path(car.id), class: "card-link" %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
