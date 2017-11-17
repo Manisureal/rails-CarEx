@@ -5,6 +5,12 @@
     <%= form_tag(cars_path, method: :get) do %>
     <%= text_field_tag :query, params[:search], style: "
     color:  black;", class: "form-control" %>
+    <p>
+      <p>
+
+      </p>
+      <span id="banner-typed-text"></span>
+    </p>
     <%= submit_tag 'Search', :name => nil, class: "btn btn-primary", style: "margin-top: 10px;" %>
     <% end %>
   </div>
