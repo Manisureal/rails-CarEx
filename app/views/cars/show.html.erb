@@ -60,7 +60,11 @@
 
     <div class="col-xs-4">
       <div class="car-show-card">
-        <%= link_to "Book this car!", new_car_booking_path(@car.id), class: "btn btn-success mt-2 btn-block" %>
+        <h2>Create your Booking</h2>
+        <%= simple_form_for([@car, @booking]) do |f| %>
+        <%= f.input :booked_time, label: 'Please choose your booking date and time...' %>
+        <%= f.submit class: "btn btn-success"%>
+        <% end %>
       </div>
       <div class="car-show-card">
         <h3>Price:</h3>
