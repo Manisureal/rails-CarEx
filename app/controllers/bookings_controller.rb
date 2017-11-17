@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.where(user: current_user)
+    @bookings = policy_scope(Booking).where(user: current_user)
+    authorize @bookings
   end
 
   def show
@@ -9,10 +10,10 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @car = Car.find(params[:car_id])
-    @booking = Booking.new
-    authorize @car
-    authorize @booking
+    # @car = Car.find(params[:car_id])
+    # @booking = Booking.new
+    # authorize @car
+    # authorize @booking
   end
 
   def create
@@ -22,7 +23,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       flash[:notice] = "Successfully created..."
-      redirect_to(car_path(car))
+      redirect_to(car_bookings_path(car))
     else
       render 'new'
     end

@@ -1,7 +1,8 @@
 <h1>Your Booking Info...</h1>
 
 <% @bookings.each do |booking| %>
-  <%= booking.booked_time %>
-  <%= booking.car.model %>
-  <%= booking.car.user %>
+  <p> Date: <%= booking.booked_time.strftime("%A,%b %d") %> </p>
+  <p> Time: <%= booking.booked_time.strftime("%H:%M") %> </p>
+  <p> Car Model: <%= booking.car.model %> </p>
+  <p> Car Make: <%= booking.car.make %> </p>
 <% end %>
