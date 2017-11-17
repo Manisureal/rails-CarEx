@@ -12,4 +12,8 @@ class BookingPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def my_bookings?
+    return true
+  end
 end
