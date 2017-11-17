@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :booked_cars, through: :bookings , source: :car
   validates :email, uniqueness: true, presence: true
   validates :encrypted_password, presence: true
+  mount_uploader :photo, PhotoUploader
+
+
 end
+
+
