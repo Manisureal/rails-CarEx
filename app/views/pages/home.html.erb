@@ -1,6 +1,7 @@
 <%= render "shared/home_banner" %>
 
 
+<h2 id="most-popular-cars-title">Total cars on our platform: (<%= @cars.count %>)  |  Most popular cars:</h2>
 <div class="container" id="cards-container-home">
   <div class="row" id="cards-row-home">
     <% @cars.sample(6).each do |car| %>
