@@ -8,8 +8,7 @@
       <div class="car-show-card">
         <h1><%= @car.make %> <%= @car.model %></h1>
         <p class="car-show-address">Color of the car:   <%= @car.color %></p>
-          <%= cl_image_tag(@car.user.photo,
-      width: 400, height: 300, crop: :fill) %>
+
       </div>
       <div class="car-show-card">
         <h3>Description of this amazing super-duper car:</h3>
@@ -76,6 +75,17 @@
           </div>
         </div>
       </div>
+      <div class="car-show-card">
+        <h3>Owner:</h3>
+        <div class="flex">
+          <div class="flex ml-3">
+           <p><%= cl_image_tag(@car.user.photo,
+      width: 100, height: 100, radius: 50 ) %></p>
+          </div>
+        </div>
+      </div>
+
+
       <div class="car-show-card">
         <h3 class="no-mb"><i class="fa fa-share-alt" aria-hidden="true"></i>
  Share:</h3>
