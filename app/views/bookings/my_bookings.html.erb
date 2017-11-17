@@ -1,0 +1,27 @@
+<h1>Your Booking Info...</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <% @bookings.each do |booking| %>
+      <div class="message">
+        <img class="avatar-large" src="<%= booking.car.photo %>">
+        <div class="message-name">
+          <h3> Booking </h3>
+          <h3> #<%= booking.id %> </h3>
+        </div>
+        <div class="message-body">
+          <h4>Date: <%= booking.booked_time.strftime("%A,%b %d") %></h4>
+          <h4>Time: <%= booking.booked_time.strftime("%H:%M") %></h4>
+          <p>Car Make & Model: <%= booking.car.make %> <%= booking.car.model %></p>
+        </div>
+        <div class="message-status">
+          <p class="status accepted">Booking Cost</p>
+          <p class="price">€<%= booking.car.price  %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

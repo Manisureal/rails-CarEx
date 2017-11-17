@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'my_cars', to: 'cars#my_cars'
   resources :cars do
-    resources :bookings, except: [:index]
+    resources :bookings
     resources :reviews, only: [:create, :new]
   end
-  get 'dashboard', to: 'bookings#index'
+  get 'dashboard', to: 'bookings#my_bookings'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
